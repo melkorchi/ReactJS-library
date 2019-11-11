@@ -1,0 +1,30 @@
+Select react
+yarn add react-select
+
+import Select from 'react-select';
+
+/*Validated Login Form
+Necessary packages
+Formik - makes handling validation, error messages, and form submission easier
+Email-validator - tiny package to validate emails (I hope this one is self-explanatory : )
+Yup - schema validator that is commonly used in conjuntion with Formik
+
+npm install Formik
+npm install email-validator
+npm install Yup*/
+
+Bootstrap
+$ npm install react-bootstrap — save
+$ npm install bootstrap@3 — save
+
+index.js
+import ‘bootstrap/dist/css/bootstrap.css’;
+import ‘bootstrap/dist/css/bootstrap-theme.css’;
+
+Ordre d'appel des méthodes:
+componentWillMount()
+définir l'état initial dans le constructeur
+render()
+componentDidMount()
+setState()
+render()

@@ -1,0 +1,22 @@
+.balise-root {
+    color: black;
+    /* border: 1px solid red; */
+    padding: 20px;
+}
+
+.head {
+    background: cornflowerblue;
+    font-size: x-large;
+}
+
+.cell {
+    vertical-align: middle !important;
+}
+
+.btn-add {
+    text-align: right;
+}
+
+button {
+    margin-right: 2px;
+}
