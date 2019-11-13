@@ -3,9 +3,10 @@ import qs from 'qs'
 
 const headers = {
     "Content-Type": "application/x-www-form-urlencoded"
+        // "Content-Type": "application/json"
 };
-// const baseUrl = "http://localhost:8080";
-const baseUrl = "https://app-node-library.herokuapp.com";
+const baseUrl = "http://localhost:8080";
+// const baseUrl = "https://app-node-library.herokuapp.com";
 
 export default {
 
@@ -22,10 +23,8 @@ export default {
     login: function(email, password) {
         return new Promise((resolve, reject) => {
             return axios.post(
-                    `${baseUrl}/users/login`, {
-                        email,
-                        password
-                    }, {
+                    `${baseUrl}/users/login`,
+                    'email=' + email + "&password=" + password, {
                         headers: headers
                     }
                 )
@@ -70,7 +69,7 @@ export default {
     },
     signup: async function(send) {
         return new Promise((resolve, reject) => {
-            return axios.post(`${baseUrl}/users/create`, send, { headers: headers })
+            return axios.post(`${baseUrl}/users/create`, qs.stringify(send), { headers: headers })
                 .then(data => {
                     console.log(data.data.user);
                     resolve(data.data.user);
