@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from 'qs'
 
 const headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/x-www-form-urlencoded"
 };
 // const baseUrl = "http://localhost:8080";
 const baseUrl = "https://app-node-library.herokuapp.com";
