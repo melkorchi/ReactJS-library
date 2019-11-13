@@ -1,11 +1,12 @@
 import React from "react";
 
 import Menulinks  from "../Menulinks/Menulinks";
+import './Slidemenu.css';
 
 class Slidemenu extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    // console.log(props);
     this.state = {
       isOpen: false
     }
@@ -40,10 +41,10 @@ class Slidemenu extends React.Component {
   }
   render() {
     let menuStatus = this.state.isOpen ? 'isopen' : '';
-    console.log(menuStatus);
+    // console.log(menuStatus);
 
     return (
-      <div ref="root">
+      <div ref="root" className="Slidemenu">
         <div className="menubar">
           <div className="hambclicker" onClick={ this._menuToggle }></div>
           {/* <div className="hambclicker" onClick={ this.test }></div> */}

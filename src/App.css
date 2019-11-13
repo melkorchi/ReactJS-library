@@ -21,7 +21,15 @@
         color: #09d3ac;
     }
     
-    .Login {
+    body {
+        background-color: #F2F2F2;
+        /* color: white; */
+        font-size: calc(10px + 2vmin);
+        font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    /* .Login {
         width: 100%;
         max-width: 600px;
         margin: auto;
@@ -37,9 +45,7 @@
     
     .Dashboard {
         width: 100%;
-        /* max-width: 600px; */
         margin: auto;
-        /* margin-top: 50px; */
     }
     
     .Bookcard {
@@ -49,21 +55,10 @@
     }
     
     .Bookcard>table {
-        /* background: red; */
-        /* margin: 0 auto; */
         text-align: left;
-    }
-    /* Test Slide Menu Side Bar */
-    
-    body {
-        background-color: #F2F2F2;
-        color: white;
-        font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-        margin: 0;
-        box-sizing: border-box;
-    }
-    
-    .menubar {
+    } */
+    /* Slide Menu Side Bar */
+    /* .menubar {
         display: block;
         height: 60px;
         background-color: #9C27B0;
@@ -198,10 +193,11 @@
     #menu.isopen {
         -webkit-transform: none;
         transform: none;
+        z-index: 1000;
     }
     
     @media screen and (max-width: 420px) {
         .menubar span {
             font-size: 1.2em;
         }
-    }
+    } */

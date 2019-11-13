@@ -1,0 +1,11 @@
+.Login {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.btn.btn-block {
+    margin-bottom: 2rem;
+    font-size: 1.94rem;
+}

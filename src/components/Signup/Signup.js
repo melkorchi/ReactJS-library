@@ -72,7 +72,7 @@ export class Signup extends React.Component {
     }
 
     try {
-      const data = await API.signup2({ email, password, name, avatar, role });
+      const data = await API.signup({ email, password, name, avatar, role });
       
       // Warning: data.code not necessarily defined
       if (data.code && data.code != 200) {
@@ -83,6 +83,7 @@ export class Signup extends React.Component {
       }
 
       localStorage.setItem("token", data.tokens[0].token);
+      // localStorage.setItem("userId", data.id);
       window.location = "/dashboard";
     } catch (error) {
       console.error(error);

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
+import "./Login.css";
 
 export class Login extends React.Component {
   state = {
@@ -41,9 +42,9 @@ export class Login extends React.Component {
       // console.log(data.data);
       // return;
       localStorage.setItem("token", data.data.token);
-      localStorage.setItem("name", data.data.name);
+      localStorage.setItem("userId", data.data.id);
       // localStorage.setItem("user", { name: data.data.name, token: data.data.token});
-      window.location = "/dashboard";
+      window.location = "/dashboard/admin/books";
     } catch (error) {
       console.error(error);
     }
@@ -80,11 +81,13 @@ export class Login extends React.Component {
             type="password"
           />
         </FormGroup>
-        <Button onClick={this.send} block bsSize="large" type="submit">
-          Connexion
-        </Button>
+        <FormGroup>
+          <Button onClick={this.send} block bsSize="large" type="submit">
+            Connexion
+          </Button>
+        </FormGroup>
         <div>
-          <a href="#">Mot de passe oublié</a>
+          <a className="mot-de-pass-oublie" href="#">Mot de passe oublié</a>
         </div>
       </div>
     );

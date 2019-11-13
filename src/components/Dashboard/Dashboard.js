@@ -1,48 +1,59 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import API from "../../utils/API";
+// import { Adminbooks } from "../Adminbooks/Adminbooks.js";
 import Adminbooks from "../Adminbooks/Adminbooks";
-// import MenuContainer  from "../MenuContainer/MenuContainer";
+import Adminusers from "../Adminusers/Adminusers";
+import Adminlogs from "../Adminlogs/Adminlogs";
 import Slidemenu  from "../Slidemenu/Slidemenu";
-// import MenuContainer  from "../MenuContainer/MenuContainer";
+import { Addbook } from "../Addbook/Addbook.js";
 
 import './Dashboard.css';
+import Nomatch from "../Nomatch/Nomatch";
 
 export class Dashboard extends React.Component {
   state = {
     books: []
   }
-  books = {};
+
   disconnect = () => {
     API.logout();
     window.location = "/";
   };
+
   async getBooks () {
-    // const {data} = await API.getBooks();
     return await API.getBooks();
-    // const data = await API.getBooks();
-    // return data.books;
   };
+
   async componentWillMount(){
     await this.getBooks().then(data => {
-      // console.log(data);
       this.setState({books: data});
     })
-  }
+  };
+
   componentDidMount(){
     console.log('Did');
-  }
+  };
+
   render() {
     const {books} = this.state;
-    // console.log(books);
+    console.log(books);
     return (
+      <BrowserRouter>
       <div className="Dashboard">
         <Slidemenu title='Dashboard'/>
-        {/* <Switch></Switch> */}
-        <Adminbooks className="Adminbook" books={books} />
+        <Switch>
+          <Route exact path="/dashboard/admin/books" render={()=><Adminbooks books={books}/>} />
+          <Route exact path="/dashboard/admin/users" render={()=><Adminusers />} />
+          <Route exact path="/dashboard/admin/logs" render={()=><Adminlogs />} />
+          <Route exact path="/dashboard/admin/books/add" render={()=><Addbook />} />
+          <Route component={Nomatch} />
+        </Switch>
+        {/* <Adminbooks className="Adminbook" books={books} /> */}
       </div>
+      </BrowserRouter>
     );
   }
 }

@@ -7,21 +7,21 @@ class MenuLinks extends React.Component {
     // Any number of links can be added here
     this.state = {
       links: [{
-        text: 'Manage books',
-        link: './dashboard/books',
+        text: 'Books',
+        link: '/dashboard/admin/books',
+        icon: 'fal fa-book-open'
+      }, {
+        text: 'Users',
+        link: '/dashboard/admin/users',
+        icon: 'fa-user'
+      }, {
+        text: 'Logs',
+        link: '/dashboard/admin/logs',
         icon: 'fa-pencil-square-o'
       }, {
-        text: 'Manage users',
-        link: './dashboard/users',
-        icon: 'fa-github'
-      }, {
-        text: 'Manage logs',
-        link: './dashboard/logs',
-        icon: 'fa-twitter'
-      }, {
-        text: 'Déconnexion',
+        text: 'Logout',
         link: '#',
-        icon: 'fa-twitter'
+        icon: 'fa-sign-out-alt'
       }]
     }
   };
@@ -30,7 +30,7 @@ class MenuLinks extends React.Component {
     window.location = "/";
   };
   render() {
-    let links = this.state.links.map((link, i) => <li ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_blank" onClick={link.text === 'Déconnexion' && this.disconnect}>{link.text}</a></li>);
+    let links = this.state.links.map((link, i) => <li ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_self" onClick={link.text === 'Logout' && this.disconnect}>{link.text}</a></li>);
 
     return (
         <div className={this.props.menuStatus} id='menu'>

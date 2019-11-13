@@ -1,4 +1,4 @@
-.balise-root {
+.Adminbooks {
     color: black;
     /* border: 1px solid red; */
     padding: 20px;
@@ -19,4 +19,20 @@
 
 button {
     margin-right: 2px;
+}
+
+fieldset {
+    border: 1px solid silver !important;
+}
+
+.links {
+    list-style-type: none;
+}
+
+.removeLink {
+    /* border: 1px solid; */
+    width: 75px;
+    height: 30px;
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
