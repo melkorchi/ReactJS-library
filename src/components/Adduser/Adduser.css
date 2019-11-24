@@ -1,0 +1,52 @@
+.err {
+    color: red;
+    text-align: left;
+}
+
+div.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker__input-container>input {
+    width: 100%;
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+
+/* Buttons */
+
+.groupe-btn {
+    margin: '0 auto 10px';
+}
+
+.btn-remove.btn.btn-sm {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* Table */
+
+table tr td {
+    font-size: calc(7px + 1vmin) !important;
+    font-weight: 400;
+}
+
+table,
+tr {
+    width: 100%;
+}

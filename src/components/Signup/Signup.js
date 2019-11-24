@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Grid, Row, Col } from "react-bootstrap";
 import API from "../../utils/API";
 import Select from 'react-select';
+import './Signup.css';
 
 const options = [
   { value: 'ROLE_USER', label: 'USER' },
@@ -29,8 +30,7 @@ export class Signup extends React.Component {
     name: "",
     avatar: "",
     role: "ROLE_USER",
-    forminValid: false,
-    // apiRes: "",
+    apiRes: "",
     // selectedOption: null
     errors: {
       name: '',
@@ -72,19 +72,21 @@ export class Signup extends React.Component {
     }
 
     try {
+      // const fromInside = false;
       const data = await API.signup({ email, password, name, avatar, role });
+
+      console.log('data', data);
       
       // Warning: data.code not necessarily defined
       if (data.code && data.code != 200) {
         errors.apiRes = data.message;
         this.setState({errors: errors});
-        // console.log(this.state);
         return;
       }
 
       localStorage.setItem("token", data.tokens[0].token);
       // localStorage.setItem("userId", data.id);
-      window.location = "/dashboard";
+      window.location = "/dashboard/admin/books";
     } catch (error) {
       console.error(error);
     }
@@ -155,72 +157,108 @@ export class Signup extends React.Component {
 
     return (
       <div className="Signup">
-        {errors.email.length > 0 && 
-          <span className='error'>{errors.email}<br /></span>}
-        {errors.password.length > 0 && 
-          <span className='error'>{errors.password}<br /></span>}
-        {errors.confirmpassword.length > 0  && 
-          <span className='error'>{errors.confirmpassword}<br /></span>}
-        {errors.name.length > 0 && 
-          <span className='error'>{errors.name}<br /></span>}
-         {errors.apiRes.length > 0 && 
-          <span className='error'>{errors.apiRes}<br /></span>}
-        <FormGroup controlId="email" bsSize="large">
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            autoFocus
-            type="email"
-            value={email}
-            onChange={this.handleChange}
-            placeholder="name@example.com"
-            required
-          />
-        </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
-          <ControlLabel>Password</ControlLabel>
-          <FormControl
-            value={password}
-            onChange={this.handleChange}
-            type="password"
-            placeholder="Enter password"
-            required
-          />
-        </FormGroup>
-        <FormGroup controlId="confirmpassword" bsSize="large">
-          <ControlLabel>Confirmation Password</ControlLabel>
-          <FormControl
-            value={confirmpassword}
-            onChange={this.handleChange}
-            type="password"
-            placeholder="Enter confirmation password"
-          />
-        </FormGroup>
-        <FormGroup controlId="name" bsSize="large">
-          <ControlLabel>Name</ControlLabel>
-          <FormControl
-            value={name}
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Enter name"
-          />
-        </FormGroup>
-        <FormGroup controlId="avatar" bsSize="large">
-          <ControlLabel>Avatar</ControlLabel>
-          <FormControl
-            value={avatar}
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Enter avatar url"
-          />
-        </FormGroup>
-        <FormGroup controlId="role" bsSize="large">
-          <ControlLabel>Rôle</ControlLabel>
-          <Select options = {options} onChange={this.handleSelectChange} autoFocus={true} defaultValue={{ label: "USER", value: "ROLE_USER" }} />
-        </FormGroup>
-        <Button onClick={this.send} block bsSize="large" type="submit" disabled={forminValid}>
-        {/* <Button onClick={this.handleSubmit} block bsSize="large" type="submit"> */}
-          Inscription
-        </Button>
+
+        <div className="menubar signup">
+          <span>Library</span>
+        </div>
+
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={12} sm={12} md={8} mdOffset={2}>
+              {/* <div className="well err">
+                {errors.email.length > 0 && 
+                <span className='error'>{errors.email}<br /></span>}
+                {errors.password.length > 0 && 
+                  <span className='error'>{errors.password}<br /></span>}
+                {errors.confirmpassword.length > 0  && 
+                  <span className='error'>{errors.confirmpassword}<br /></span>}
+                {errors.name.length > 0 && 
+                  <span className='error'>{errors.name}<br /></span>}
+                {errors.apiRes.length > 0 && 
+                  <span className='error'>{errors.apiRes}<br /></span>}
+              </div> */}
+              {
+                (errors.email.length > 0 || errors.password.length > 0 || errors.confirmpassword.length > 0 ||  errors.name.length > 0 || errors.apiRes.length > 0) &&
+              
+                <div className="well err">
+                  {errors.email.length > 0 && 
+                    <span className='error'>{errors.email}<br /></span>}
+                  {errors.password.length > 0 && 
+                    <span className='error'>{errors.password}<br /></span>}
+                  {errors.confirmpassword.length > 0  && 
+                    <span className='error'>{errors.confirmpassword}<br /></span>}
+                  {errors.name.length > 0 && 
+                    <span className='error'>{errors.name}<br /></span>}
+                  {errors.apiRes.length > 0 && 
+                    <span className='error'>{errors.apiRes}<br /></span>}
+                </div>
+              }
+              
+              <FormGroup controlId="email" bsSize="large">
+                <ControlLabel>Email</ControlLabel>
+                <FormControl
+                  autoFocus
+                  type="email"
+                  value={email}
+                  onChange={this.handleChange}
+                  placeholder="name@example.com"
+                  required
+                />
+              </FormGroup>
+              <FormGroup controlId="password" bsSize="large">
+                <ControlLabel>Password</ControlLabel>
+                <FormControl
+                  value={password}
+                  onChange={this.handleChange}
+                  type="password"
+                  placeholder="Enter password"
+                  required
+                />
+              </FormGroup>
+              <FormGroup controlId="confirmpassword" bsSize="large">
+                <ControlLabel>Confirmation Password</ControlLabel>
+                <FormControl
+                  value={confirmpassword}
+                  onChange={this.handleChange}
+                  type="password"
+                  placeholder="Enter confirmation password"
+                />
+              </FormGroup>
+              <FormGroup controlId="name" bsSize="large">
+                <ControlLabel>Name</ControlLabel>
+                <FormControl
+                  value={name}
+                  onChange={this.handleChange}
+                  type="text"
+                  placeholder="Enter name"
+                />
+              </FormGroup>
+              <FormGroup controlId="avatar" bsSize="large">
+                <ControlLabel>Avatar</ControlLabel>
+                <FormControl
+                  value={avatar}
+                  onChange={this.handleChange}
+                  type="text"
+                  placeholder="Enter avatar url"
+                />
+              </FormGroup>
+              {/* <FormGroup controlId="role" bsSize="large">
+                <ControlLabel>Rôle</ControlLabel>
+                <Select options = {options} onChange={this.handleSelectChange} autoFocus={true} defaultValue={{ label: "USER", value: "ROLE_USER" }} />
+              </FormGroup> */}
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={8} mdOffset={2}>
+              <div className="well groupe-btn">
+                <Button onClick={this.send} block bsStyle="warning" bsSize="large" type="submit">
+                  Créer
+                </Button>
+                <a className = "signup" href = "/login">Se connecter</a>
+              </div>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }

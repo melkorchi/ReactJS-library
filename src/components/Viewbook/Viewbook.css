@@ -1,0 +1,101 @@
+/* Structure */
+
+
+/* Image */
+
+.image {
+    width: 100%;
+    height: 400px;
+    /* background-image: url('./../../Images/rumî.jpg'); */
+    background-image: url('./../../Images/noimage.png');
+    background-size: 100% 100%;
+}
+
+.img-rounded {
+    width: 100%;
+    height: auto;
+    max-width: 225px;
+    max-height: 400px;
+}
+
+
+/* data */
+
+.data {
+    width: 100%;
+    height: 400px;
+    text-align: left;
+}
+
+.data>div {
+    margin-bottom: 20px;
+}
+
+.data>div>ul {
+    margin-top: 10px;
+}
+
+.data>ul,
+.data>div {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.data>ul>li {
+    margin-left: 0px;
+}
+
+span.label {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+/* Button */
+
+.btn.btn-lg {
+    font-size: 20px;
+}
+
+
+/* Comments */
+
+span {
+    text-align: left;
+}
+
+.username {
+    display: block;
+}
+
+.date {
+    display: block;
+}
+
+.rate {
+    display: block;
+}
+
+.comment {
+    display: block;
+}
+
+
+/* Modal */
+
+.modal-container {
+    position: relative;
+}
+
+.modal-container .modal,
+.modal-container .modal-backdrop {
+    position: absolute;
+}
+
+.fade:not(.show) {
+    opacity: 0.9;
+}
+
+.modal {
+    top: 40%;
+}

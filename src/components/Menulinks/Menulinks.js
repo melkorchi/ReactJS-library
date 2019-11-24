@@ -30,7 +30,9 @@ class MenuLinks extends React.Component {
     window.location = "/";
   };
   render() {
-    let links = this.state.links.map((link, i) => <li ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_self" onClick={link.text === 'Logout' && this.disconnect}>{link.text}</a></li>);
+    // let links = this.state.links.map((link, i) => <li key={i} ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_self" onClick={link.text === 'Logout' && this.disconnect}>{link.text}</a></li>);
+
+     let links = this.state.links.map((link, i) => <li key={i} ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_self" onClick={(link.text === 'Logout')?this.disconnect:null}>{link.text}</a></li>);
 
     return (
         <div className={this.props.menuStatus} id='menu'>

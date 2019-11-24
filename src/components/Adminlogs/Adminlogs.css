@@ -1,5 +1,64 @@
-.Adminlogs {
-    color: black;
-    /* border: 1px solid red; */
-    padding: 20px;
+.Adminusers {}
+
+.head {
+    background: cornflowerblue;
+    font-size: x-large;
+}
+
+.cell {
+    vertical-align: middle !important;
+}
+
+.btn.btn-lg {
+    font-size: 20px;
+}
+
+button {
+    margin-right: 2px;
+}
+
+fieldset {
+    border: 1px solid silver !important;
+}
+
+.links {
+    list-style-type: none;
+}
+
+
+/* Search */
+
+.form-control {
+    font-size: calc(10px + 1vmin) !important;
+}
+
+
+/* Table */
+
+table tr.head td {
+    font-size: calc(9px + 1vmin) !important;
+    font-weight: 600;
+}
+
+table tr.body td {
+    font-size: calc(7px + 1vmin) !important;
+    font-weight: 400;
+}
+
+
+/* Button */
+
+td.cell .btn,
+div.btn-add .btn {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+div.btn-add .btn {
+    color: #FFF;
+    font-size: 18px;
+}
+
+div .btn-add {
+    text-align: center;
 }

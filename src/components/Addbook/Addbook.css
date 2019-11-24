@@ -1,10 +1,4 @@
-.Addbook {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    margin-top: 50px;
-    color: black;
-}
+.Addbook {}
 
 div.react-datepicker-wrapper {
     width: 100%;
@@ -27,4 +21,34 @@ label {
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: 700;
+}
+
+
+/* Buttons */
+
+.groupe-btn {
+    /* max-width: 400px; */
+    margin: '0 auto 10px';
+}
+
+.btn-remove.btn.btn-sm {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* Table */
+
+table tr td {
+    font-size: calc(7px + 1vmin) !important;
+    font-weight: 400;
+}
+
+table,
+tr {
+    width: 100%;
+}
+
+table tr td.add-book {
+    width: 33.3%;
 }

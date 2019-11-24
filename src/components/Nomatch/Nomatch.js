@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const Nomatch = () => (
 
-  <div className = "Adminusers">
+  <div className = "Nomatch">
     <h3>This route doesn't exists</h3>
   </div>
 )
